@@ -9,9 +9,6 @@ on:
       - main
   workflow_dispatch:
 
-env:
-  AZURE_WEBAPP_PACKAGE_PATH: ${{ github.workspace }}    
-  
 jobs:
   deploy:
     runs-on: ubuntu-latest
