@@ -20,7 +20,12 @@ jobs:
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     
     steps:
-      - run: ls .
+      - run: |
+          pwd
+          ls .
+          cd ..
+          pwd
+          ls .
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
