@@ -27,4 +27,4 @@ jobs:
           app-name: 'WebApp0085'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1CF580D4ACB846E9AC597A64F7CD56E1 }}
-          package: '*.war'
+          package: './*.war'
