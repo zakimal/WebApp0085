@@ -17,11 +17,11 @@ jobs:
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     
     steps:
-      - run: |
-          pwd
-          mkdir hoge
-          cd hoge
-          pwd
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v2
+        with:
+          name: java-app
+
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
@@ -29,4 +29,4 @@ jobs:
           app-name: 'WebApp0085'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1CF580D4ACB846E9AC597A64F7CD56E1 }}
-          package: 'java-docs-spring-hello-world-0.0.1-SNAPSHOT.war'
+          package: '*.war'
