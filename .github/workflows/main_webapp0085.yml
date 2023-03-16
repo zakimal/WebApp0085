@@ -17,6 +17,9 @@ jobs:
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     
     steps:
+      - run: |
+          echo ${{ github.workspace }}
+          ls .
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
@@ -24,4 +27,4 @@ jobs:
           app-name: 'WebApp0085'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1CF580D4ACB846E9AC597A64F7CD56E1 }}
-          package: $(Pipeline.Workspace)/*.war
+          package: '*.war'
