@@ -21,10 +21,10 @@ jobs:
     
     steps:
       - run: pwd
-      - run: ls .
+      - run: ls
       - run: cd ..
       - run: pwd
-      - run: ls .
+      - run: ls
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
